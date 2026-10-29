@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="1.688" tests="68" skipped="0" failures="0" errors="0" timestamp="2026-10-27T22:14:16.176668Z">
+<testcase classname="Segurança e disponibilidade da API" name="Health check público responde sem exigir credenciais" time="0.353">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/saude"..................................passed
+Então o status da resposta deve ser 200.....................................passed
+E o campo "status" deve ser "UP"............................................passed
+E a resposta deve respeitar o schema "saude.schema.json"....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.1" time="0.047">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/coletas"................................passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.2" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "POST" para "/api/v1/coletas"...............................passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.3" time="0.009">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/coletas/00000000-0000-0000-0000-000000000001"..passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.4" time="0.009">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "PUT" para "/api/v1/coletas/00000000-0000-0000-0000-000000000001"..passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.5" time="0.008">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "PATCH" para "/api/v1/coletas/00000000-0000-0000-0000-000000000001/confirmacao"..passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.6" time="0.008">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "DELETE" para "/api/v1/coletas/00000000-0000-0000-0000-000000000001"..passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.7" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/creditos/familia-qa/saldo"..............passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.8" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/creditos/familia-qa/extrato"............passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.9" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates".....................passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Acesso sem credenciais é barrado com 401 em todos os endpoints protegidos - Cada endpoint protegido precisa de porteiro (lixo perigoso não entra sem crachá) - #1.10" time="0.008">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que não envio credenciais..............................................passed
+Quando eu envio "GET" para "/api/v1/esg/indicadores"........................passed
+Então o status da resposta deve ser 401.....................................passed
+E o cabeçalho "WWW-Authenticate" deve conter "Bearer".......................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Token inválido também é barrado com 401" time="0.012">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que envio um token inválido............................................passed
+Quando eu envio "GET" para "/api/v1/coletas"................................passed
+Então o status da resposta deve ser 401.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Credenciais ausentes ou inválidas"...........passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Operador não pode apagar registros (separação de funções) e recebe 403" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que estou autenticado como "operador"..................................passed
+Quando eu envio "DELETE" para "/api/v1/coletas/00000000-0000-0000-0000-000000000001"..passed
+Então o status da resposta deve ser 403.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Perfil sem permissão para esta operação".....passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Método HTTP não suportado devolve 405 com erro padronizado" time="0.008">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que estou autenticado como "operador"..................................passed
+Quando eu envio "PATCH" para "/api/v1/coletas"..............................passed
+Então o status da resposta deve ser 405.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Segurança e disponibilidade da API" name="Rota inexistente devolve 404 com erro padronizado" time="0.009">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+Dado que estou autenticado como "operador"..................................passed
+Quando eu envio "GET" para "/api/v1/rota-que-nao-existe"....................passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Registrar uma coleta válida nasce pendente e com pontos calculados" time="0.083">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E o cabeçalho "Location" deve conter "/api/v1/coletas/{coletaId}"...........passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "familia" deve ser "{familia}"....................................passed
+E o campo "tipoResiduo" deve ser "PILHAS"...................................passed
+E o campo "quantidadeUnidades" deve ser "12"................................passed
+E o campo "status" deve ser "PENDENTE"......................................passed
+E o campo "pontosGerados" deve ser "40".....................................passed
+E o campo "confirmadaEm" deve ser "null"....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.1" time="0.036">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "familia" para "(ausente)".............................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "familia".........................passed
+E o detalhe do campo "familia" deve ser "A família é obrigatória"...........passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.2" time="0.017">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "tipoResiduo" para "(ausente)".........................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "tipoResiduo".....................passed
+E o detalhe do campo "tipoResiduo" deve ser "O tipo de resíduo é obrigatório"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.3" time="0.02">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "quantidadeUnidades" para "(ausente)"..................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "quantidadeUnidades"..............passed
+E o detalhe do campo "quantidadeUnidades" deve ser "A quantidade de unidades é obrigatória"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.4" time="0.016">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "quantidadeUnidades" para "0"..........................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "quantidadeUnidades"..............passed
+E o detalhe do campo "quantidadeUnidades" deve ser "A quantidade deve ser no mínimo 1"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.5" time="0.015">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "quantidadeUnidades" para "1001".......................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "quantidadeUnidades"..............passed
+E o detalhe do campo "quantidadeUnidades" deve ser "A quantidade deve ser no máximo 1000"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.6" time="0.014">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "pesoKg" para "(ausente)"..............................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pesoKg"..........................passed
+E o detalhe do campo "pesoKg" deve ser "O peso em kg é obrigatório".........passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.7" time="0.015">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "pesoKg" para "0"......................................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pesoKg"..........................passed
+E o detalhe do campo "pesoKg" deve ser "O peso deve ser maior que zero".....passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.8" time="0.014">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "pesoKg" para "-1.5"...................................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pesoKg"..........................passed
+E o detalhe do campo "pesoKg" deve ser "O peso deve ser maior que zero".....passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.9" time="0.014">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "pesoKg" para "501"....................................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pesoKg"..........................passed
+E o detalhe do campo "pesoKg" deve ser "O peso deve ser no máximo 500 kg"...passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Dados inválidos na criação são rejeitados com 400 e indicam o campo culpado - Campos obrigatórios ausentes e valores fora do limite - #1.10" time="0.015">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que altero o campo "pontoColeta" para "(ausente)".........................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pontoColeta".....................passed
+E o detalhe do campo "pontoColeta" deve ser "O ponto de coleta é obrigatório"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Tipo de resíduo desconhecido (lixo comum não é perigoso) é rejeitado com 400" time="0.008">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "LIXO_COMUM" com 1 unidades e peso de "1.0" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="JSON malformado é rejeitado com 400 sem vazar detalhes internos" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo bruto:............passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E o corpo não deve expor detalhes internos..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Listar coletas filtrando pela família devolve apenas as dela" time="0.023">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 8 unidades e peso de "0.27" kg..passed
+Quando eu envio "GET" para "/api/v1/coletas?familia={familia}"..............passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "lista-coletas.schema.json"............passed
+E a lista deve ter exatamente 1 elemento....................................passed
+E todos os itens da lista devem ter "familia" igual a "{familia}"...........passed
+E a lista "id" deve conter o valor "{coletaId}".............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Filtrar a listagem por status separa o pendente do confirmado - #1.1" time="0.016">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "ISQUEIROS" com 3 unidades e peso de "0.15" kg..passed
+E que a coleta está confirmada..............................................passed
+Quando eu envio "GET" para "/api/v1/coletas?familia={familia}&status=CONFIRMADA"..passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "lista-coletas.schema.json"............passed
+E a lista deve ter exatamente 1 elementos...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Filtrar a listagem por status separa o pendente do confirmado - #1.2" time="0.014">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "ISQUEIROS" com 3 unidades e peso de "0.15" kg..passed
+E que a coleta está confirmada..............................................passed
+Quando eu envio "GET" para "/api/v1/coletas?familia={familia}&status=PENDENTE"..passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "lista-coletas.schema.json"............passed
+E a lista deve ter exatamente 0 elementos...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Listar coletas de uma família sem registros devolve lista vazia" time="0.004">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/coletas?familia={familia}"..............passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "lista-coletas.schema.json"............passed
+E a lista deve ter exatamente 0 elementos...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Filtro de status inválido é rejeitado com 400" time="0.005">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/coletas?status=INVENTADO"...............passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Consultar uma coleta existente pelo identificador" time="0.02">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "ELETRONICOS_PEQUENOS" com 2 unidades e peso de "1.8" kg..passed
+Quando eu envio "GET" para "/api/v1/coletas/{coletaId}".....................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "id" deve ser "{coletaId}"........................................passed
+E o campo "tipoResiduo" deve ser "ELETRONICOS_PEQUENOS".....................passed
+E o campo "pontosGerados" deve ser "90".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Consultar coleta inexistente devolve 404" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/coletas/00000000-0000-0000-0000-00000000dead"..passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Coleta não encontrada".......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Identificador fora do formato UUID devolve 400" time="0.005">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/coletas/isto-nao-e-um-uuid".............passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Corrigir uma coleta pendente recalcula os pontos" time="0.032">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que preparo uma atualização para 20 unidades e peso de "0.5" kg no ponto "EcoPonto Moema"..passed
+Quando eu envio "PUT" para "/api/v1/coletas/{coletaId}" com o corpo preparado..passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "quantidadeUnidades" deve ser "20"................................passed
+E o campo "pontoColeta" deve ser "EcoPonto Moema"...........................passed
+E o campo "pontosGerados" deve ser "50".....................................passed
+E o campo "status" deve ser "PENDENTE"......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Atualização com peso inválido é rejeitada com 400" time="0.017">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que preparo uma atualização para 20 unidades e peso de "0.5" kg no ponto "EcoPonto Moema"..passed
+E que altero o campo "pesoKg" para "0"......................................passed
+Quando eu envio "PUT" para "/api/v1/coletas/{coletaId}" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pesoKg"..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Atualizar coleta inexistente devolve 404" time="0.006">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma atualização para 20 unidades e peso de "0.5" kg no ponto "EcoPonto Moema"..passed
+Quando eu envio "PUT" para "/api/v1/coletas/00000000-0000-0000-0000-00000000dead" com o corpo preparado..passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Confirmar uma coleta registra o momento da confirmação e gera créditos" time="0.022">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+Quando eu envio "PATCH" para "/api/v1/coletas/{coletaId}/confirmacao".......passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "status" deve ser "CONFIRMADA"....................................passed
+E o campo "confirmadaEm" não deve ser nulo..................................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o status da resposta deve ser 200.....................................passed
+E o campo "saldoPontos" deve ser "40".......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Coleta já confirmada não pode ser confirmada duas vezes (nada de crédito em dobro)" time="0.022">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que a coleta está confirmada..............................................passed
+Quando eu envio "PATCH" para "/api/v1/coletas/{coletaId}/confirmacao".......passed
+Então o status da resposta deve ser 409.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Coleta já confirmada"........................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o campo "saldoPontos" deve ser "40"...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Coleta confirmada é imutável: tentar alterá-la devolve 409" time="0.018">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que a coleta está confirmada..............................................passed
+E que preparo uma atualização para 99 unidades e peso de "9.9" kg no ponto "EcoPonto Fantasma"..passed
+Quando eu envio "PUT" para "/api/v1/coletas/{coletaId}" com o corpo preparado..passed
+Então o status da resposta deve ser 409.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Coleta já confirmada não pode ser alterada (rastreabilidade)"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Confirmar coleta inexistente devolve 404" time="0.004">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "PATCH" para "/api/v1/coletas/00000000-0000-0000-0000-00000000dead/confirmacao"..passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Administrador remove uma coleta e ela deixa de existir (204 e depois 404)" time="0.013">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que estou autenticado como "administrador".............................passed
+E que existe uma coleta pendente de "ISQUEIROS" com 3 unidades e peso de "0.15" kg..passed
+Quando eu envio "DELETE" para "/api/v1/coletas/{coletaId}"..................passed
+Então o status da resposta deve ser 204.....................................passed
+E o corpo da resposta deve estar vazio......................................passed
+Quando eu envio "GET" para "/api/v1/coletas/{coletaId}".....................passed
+Então o status da resposta deve ser 404.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Remover coleta inexistente devolve 404" time="0.004">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que estou autenticado como "administrador".............................passed
+Quando eu envio "DELETE" para "/api/v1/coletas/00000000-0000-0000-0000-00000000dead"..passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de coletas de resíduos perigosos" name="Operador não consegue remover uma coleta e ela continua lá (403)" time="0.013">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que existe uma coleta pendente de "ISQUEIROS" com 3 unidades e peso de "0.15" kg..passed
+Quando eu envio "DELETE" para "/api/v1/coletas/{coletaId}"..................passed
+Então o status da resposta deve ser 403.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+Quando eu envio "GET" para "/api/v1/coletas/{coletaId}".....................passed
+Então o status da resposta deve ser 200.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Saldo reflete os pontos das coletas confirmadas" time="0.018">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que a família possui 100 pontos de crédito.............................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "saldo.schema.json"....................passed
+E o campo "familia" deve ser "{familia}"....................................passed
+E o campo "saldoPontos" deve ser "100"......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Saldo de família sem lançamentos devolve 404" time="0.007">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Família sem lançamentos".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Extrato lista o crédito gerado e aponta a coleta de origem" time="0.019">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que a família possui 100 pontos de crédito.............................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/extrato".............passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "extrato.schema.json"..................passed
+E a lista deve ter exatamente 1 elemento....................................passed
+E todos os itens da lista devem ter "tipo" igual a "GERADO".................passed
+E a lista "origem" deve conter o valor "COLETA:{coletaId}"..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Extrato de família sem lançamentos devolve lista vazia" time="0.005">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/extrato".............passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "extrato.schema.json"..................passed
+E a lista deve ter exatamente 0 elementos...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Família troca pontos por uma cesta básica e o saldo é debitado" time="0.029">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que a família possui 100 pontos de crédito.............................passed
+E que preparo um resgate de 40 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "lancamento.schema.json"...............passed
+E o campo "tipo" deve ser "RESGATADO".......................................passed
+E o campo "valorPontos" deve ser "-40"......................................passed
+E o campo "saldoApos" deve ser "60".........................................passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o campo "saldoPontos" deve ser "60"...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate maior que o saldo é recusado com 422 e o saldo permanece intacto" time="0.024">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que a família possui 100 pontos de crédito.............................passed
+E que preparo um resgate de 101 pontos no parceiro "Hortifruti Raiz" para o item "Kit de hortaliças"..passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 422.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E a mensagem de erro deve ser "Saldo insuficiente para o resgate"...........passed
+Quando eu envio "GET" para "/api/v1/creditos/{familia}/saldo"...............passed
+Então o campo "saldoPontos" deve ser "100"..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate com dados inválidos é rejeitado com 400 - #1.1" time="0.013">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+E que altero o campo "familia" para "(ausente)".............................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "familia".........................passed
+E o detalhe do campo "familia" deve ser "A família é obrigatória"...........passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate com dados inválidos é rejeitado com 400 - #1.2" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+E que altero o campo "parceiro" para "(ausente)"............................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "parceiro"........................passed
+E o detalhe do campo "parceiro" deve ser "O parceiro é obrigatório".........passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate com dados inválidos é rejeitado com 400 - #1.3" time="0.019">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+E que altero o campo "item" para "(ausente)"................................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "item"............................passed
+E o detalhe do campo "item" deve ser "O item é obrigatório".................passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate com dados inválidos é rejeitado com 400 - #1.4" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+E que altero o campo "pontos" para "0"......................................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pontos"..........................passed
+E o detalhe do campo "pontos" deve ser "Os pontos devem ser no mínimo 1"....passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgate com dados inválidos é rejeitado com 400 - #1.5" time="0.012">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+E que altero o campo "pontos" para "(ausente)"..............................passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+E os detalhes do erro devem citar o campo "pontos"..........................passed
+E o detalhe do campo "pontos" deve ser "Os pontos são obrigatórios".........passed
+]]></system-out>
+</testcase>
+<testcase classname="Créditos alimentares das famílias" name="Resgatar sem ter pontos (família sem histórico) também é recusado com 422" time="0.005">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo um resgate de 10 pontos no parceiro "Mercado Bom Preço" para o item "Cesta básica pequena"..passed
+Quando eu envio "POST" para "/api/v1/creditos/resgates" com o corpo preparado..passed
+Então o status da resposta deve ser 422.....................................passed
+E a resposta deve respeitar o schema "erro.schema.json".....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Consultar os indicadores ESG respeita o contrato" time="0.014">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Quando eu envio "GET" para "/api/v1/esg/indicadores"........................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "indicadores.schema.json"..............passed
+E o campo "totalColetas" deve ser do tipo "numero"..........................passed
+E o campo "porTipoResiduo" deve ser do tipo "lista".........................passed
+E o campo "geradoEm" deve ser do tipo "texto"...............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Coleta confirmada entra nos indicadores ambientais e sociais" time="0.037">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que registro a fotografia atual dos indicadores ESG....................passed
+E que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+E que a coleta está confirmada..............................................passed
+Quando eu envio "GET" para "/api/v1/esg/indicadores"........................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o schema "indicadores.schema.json"..............passed
+E o indicador "totalColetas" deve ter aumentado em "1"......................passed
+E o indicador "coletasConfirmadas" deve ter aumentado em "1"................passed
+E o indicador "pesoTotalKg" deve ter aumentado em "0.4".....................passed
+E o indicador "pontosDistribuidos" deve ter aumentado em "40"...............passed
+E o indicador "familiasAtendidas" deve ter aumentado em "1".................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Coleta pendente não infla o impacto (só o que foi auditado conta)" time="0.031">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que registro a fotografia atual dos indicadores ESG....................passed
+E que existe uma coleta pendente de "PILHAS" com 12 unidades e peso de "0.4" kg..passed
+Quando eu envio "GET" para "/api/v1/esg/indicadores"........................passed
+Então o status da resposta deve ser 200.....................................passed
+E o indicador "totalColetas" deve ter aumentado em "1"......................passed
+E o indicador "coletasPendentes" deve ter aumentado em "1"..................passed
+E o indicador "coletasConfirmadas" não deve ter mudado......................passed
+E o indicador "pesoTotalKg" não deve ter mudado.............................passed
+E o indicador "pontosDistribuidos" não deve ter mudado......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Resgate de alimentos aparece como pontos resgatados nos indicadores" time="0.029">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que a família possui 100 pontos de crédito.............................passed
+E que registro a fotografia atual dos indicadores ESG.......................passed
+E que preparo um resgate de 30 pontos no parceiro "Padaria Trigo Dourado" para o item "Vale-pão semanal"..passed
+E que envio o resgate preparado.............................................passed
+Quando eu envio "GET" para "/api/v1/esg/indicadores"........................passed
+Então o status da resposta deve ser 200.....................................passed
+E o indicador "pontosResgatados" deve ter aumentado em "30".................passed
+E o indicador "pontosDistribuidos" não deve ter mudado......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.1" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "PILHAS" com 1 unidades e peso de "0.4" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "40".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.2" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "ISQUEIROS" com 1 unidades e peso de "0.15" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "15".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.3" time="0.016">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "ELETRONICOS_PEQUENOS" com 1 unidades e peso de "1.8" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "90".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.4" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "OLEO_DE_COZINHA" com 1 unidades e peso de "2.0" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "60".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.5" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "LAMPADAS_FLUORESCENTES" com 1 unidades e peso de "0.6" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "48".....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ESG consolidados" name="Cada tipo de resíduo rende pontos proporcionais ao peso (eficiência de recursos) - Tabela de pontos por quilo (a mesma usada no projeto do MongoDB) - #1.6" time="0.011">
+<system-out><![CDATA[
+Dado que a API do Impacto Verde está disponível.............................passed
+E que estou autenticado como "operador".....................................passed
+Dado que preparo uma coleta válida de "BATERIAS_DE_CELULAR" com 1 unidades e peso de "0.25" kg..passed
+Quando eu envio "POST" para "/api/v1/coletas" com o corpo preparado.........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o schema "coleta.schema.json"...................passed
+E o campo "pontosGerados" deve ser "35".....................................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "erro.schema.json",
+  "title": "Erro padronizado da API (nunca expõe stack trace)",
+  "type": "object",
+  "required": ["timestamp", "status", "erro", "mensagem", "caminho", "detalhes"],
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+    "erro": { "type": "string", "minLength": 1 },
+    "mensagem": { "type": "string", "minLength": 1 },
+    "caminho": { "type": "string" },
+    "detalhes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["campo", "mensagem"],
+        "properties": {
+          "campo": { "type": "string", "minLength": 1 },
+          "mensagem": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

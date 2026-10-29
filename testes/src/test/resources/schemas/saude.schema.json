@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "saude.schema.json",
+  "title": "Resposta do health check público",
+  "type": "object",
+  "required": ["status", "servico"],
+  "properties": {
+    "status": { "type": "string", "enum": ["UP"] },
+    "servico": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

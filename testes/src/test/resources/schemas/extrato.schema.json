@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "extrato.schema.json",
+  "title": "Extrato de créditos de uma família",
+  "type": "array",
+  "items": { "$ref": "lancamento.schema.json" }
+}

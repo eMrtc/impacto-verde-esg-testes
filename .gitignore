@@ -1,0 +1,15 @@
+# Compilados e relatórios
+target/
+relatorios/
+*.log
+
+# Segredos NUNCA vão pro Git (o lixo tóxico do repositório)
+.env
+*.pem
+*.key
+
+# IDEs / SO
+.idea/
+.vscode/
+*.iml
+.DS_Store

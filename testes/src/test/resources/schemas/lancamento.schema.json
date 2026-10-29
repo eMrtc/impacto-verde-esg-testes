@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "lancamento.schema.json",
+  "title": "Lançamento no extrato de créditos (resgates têm valor negativo)",
+  "type": "object",
+  "required": ["id", "familia", "tipo", "valorPontos", "origem", "saldoApos", "data"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" },
+    "familia": { "type": "string", "minLength": 1 },
+    "tipo": { "type": "string", "enum": ["GERADO", "RESGATADO"] },
+    "valorPontos": { "type": "integer" },
+    "origem": { "type": "string", "minLength": 1 },
+    "saldoApos": { "type": "integer", "minimum": 0 },
+    "data": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

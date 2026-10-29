@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT:8080}
+  # Segurança: por padrão escuta só em loopback. Nunca use 0.0.0.0.
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  error:
+    include-stacktrace: never
+    include-message: never
+
+spring:
+  application:
+    name: impacto-verde-api-exemplo
+
+impactoverde:
+  seguranca:
+    # Obrigatórios e SEM valor padrão: sem variável de ambiente a API nem sobe (falha segura).
+    token-operador: ${IMPACTO_VERDE_TOKEN_OPERADOR}
+    token-admin: ${IMPACTO_VERDE_TOKEN_ADMIN}

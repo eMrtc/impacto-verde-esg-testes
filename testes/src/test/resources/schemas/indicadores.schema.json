@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "indicadores.schema.json",
+  "title": "Indicadores ESG consolidados",
+  "type": "object",
+  "required": [
+    "totalColetas", "coletasConfirmadas", "coletasPendentes", "pesoTotalKg",
+    "pontosDistribuidos", "pontosResgatados", "familiasAtendidas", "porTipoResiduo", "geradoEm"
+  ],
+  "properties": {
+    "totalColetas": { "type": "integer", "minimum": 0 },
+    "coletasConfirmadas": { "type": "integer", "minimum": 0 },
+    "coletasPendentes": { "type": "integer", "minimum": 0 },
+    "pesoTotalKg": { "type": "number", "minimum": 0 },
+    "pontosDistribuidos": { "type": "integer", "minimum": 0 },
+    "pontosResgatados": { "type": "integer", "minimum": 0 },
+    "familiasAtendidas": { "type": "integer", "minimum": 0 },
+    "porTipoResiduo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tipoResiduo", "coletas", "pesoKg", "pontos"],
+        "properties": {
+          "tipoResiduo": {
+            "type": "string",
+            "enum": ["PILHAS", "ISQUEIROS", "ELETRONICOS_PEQUENOS", "OLEO_DE_COZINHA", "LAMPADAS_FLUORESCENTES", "BATERIAS_DE_CELULAR"]
+          },
+          "coletas": { "type": "integer", "minimum": 1 },
+          "pesoKg": { "type": "number", "minimum": 0 },
+          "pontos": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "geradoEm": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

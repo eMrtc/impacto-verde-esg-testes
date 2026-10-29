@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "saldo.schema.json",
+  "title": "Saldo de créditos alimentares de uma família (pilar Social)",
+  "type": "object",
+  "required": ["familia", "saldoPontos"],
+  "properties": {
+    "familia": { "type": "string", "minLength": 1 },
+    "saldoPontos": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

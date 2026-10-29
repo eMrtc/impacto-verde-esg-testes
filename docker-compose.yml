@@ -1,0 +1,32 @@
+# Sobe a API e executa os testes de forma reproduzível.
+# Uso:  scripts/executar-docker.sh   (gera o .env e cuida de tudo)
+#
+# Segurança: a API escuta apenas em 127.0.0.1 DENTRO do contêiner. Para os testes alcançarem esse
+# loopback, o serviço "testes" compartilha a rede da API (network_mode). Nenhuma porta é publicada.
+services:
+  api:
+    build: ./api-exemplo
+    environment:
+      IMPACTO_VERDE_TOKEN_OPERADOR: ${API_TOKEN_OPERADOR:?execute scripts/configurar-ambiente.sh}
+      IMPACTO_VERDE_TOKEN_ADMIN: ${API_TOKEN_ADMIN:?execute scripts/configurar-ambiente.sh}
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+
+  testes:
+    build: ./testes
+    network_mode: "service:api"
+    depends_on:
+      - api
+    environment:
+      API_BASE_URL: http://127.0.0.1:8080
+      API_TOKEN_OPERADOR: ${API_TOKEN_OPERADOR:?execute scripts/configurar-ambiente.sh}
+      API_TOKEN_ADMIN: ${API_TOKEN_ADMIN:?execute scripts/configurar-ambiente.sh}
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

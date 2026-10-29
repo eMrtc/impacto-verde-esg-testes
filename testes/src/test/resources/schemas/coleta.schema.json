@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "coleta.schema.json",
+  "title": "Coleta de resíduo perigoso (pilar Ambiental)",
+  "type": "object",
+  "required": [
+    "id", "familia", "tipoResiduo", "quantidadeUnidades", "pesoKg",
+    "pontoColeta", "status", "pontosGerados", "criadaEm", "confirmadaEm"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" },
+    "familia": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "tipoResiduo": {
+      "type": "string",
+      "enum": ["PILHAS", "ISQUEIROS", "ELETRONICOS_PEQUENOS", "OLEO_DE_COZINHA", "LAMPADAS_FLUORESCENTES", "BATERIAS_DE_CELULAR"]
+    },
+    "quantidadeUnidades": { "type": "integer", "minimum": 1, "maximum": 1000 },
+    "pesoKg": { "type": "number", "exclusiveMinimum": 0, "maximum": 500 },
+    "pontoColeta": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "status": { "type": "string", "enum": ["PENDENTE", "CONFIRMADA"] },
+    "pontosGerados": { "type": "integer", "minimum": 0 },
+    "criadaEm": { "type": "string", "format": "date-time" },
+    "confirmadaEm": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}
